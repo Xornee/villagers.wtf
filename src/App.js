@@ -52,12 +52,15 @@ export const ResponsiveWrapper = styled.div`
   justify-content: stretched;
   align-items: stretched;
   width: 100%;
+  padding: 24px;
   @media (min-width: 767px) {
     flex-direction: row;
   }
+  
 `;
 export const StyledH1 = styled.h1`
   color: white; 
+  text-align: center;
   text-shadow:
    -8px -8px 0 #000,  
     8px -8px 0 #000,
@@ -73,12 +76,20 @@ export const StyledImg = styled.img`
   width: 200px;
   @media (min-width: 900px) {
     width: 400px;
+    height: 400px;
+    margin-right: 22px;
   }
-  @media (min-width: 1000px) {
-    width: 600px;
+  @media (max-width: 1271px) {
+    margin: 22px;
+  }
+  @media (min-width: 1571px) {
+    width: 500px;
+    height: auto;
+    margin-right: 22px;
   }
   @media (min-width: 1930px) {
     width: 900px;
+    height: auto;
   }
   transition: width 0.5s;
 `;
@@ -119,6 +130,9 @@ export const MainContainer = styled.div`
   @media (min-width: 900px) {
     margin-left: 100px;
     margin-right: 100px;
+  }
+  @media (max-width: 1271px) {
+    flex-direction: column;
   }
   @media (min-width: 1930px) {
     margin-left: 200px;
@@ -270,11 +284,8 @@ function App() {
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.png" : null}
       >
         <StyledH1>Villagers WTF</StyledH1>
-        <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
+        <ResponsiveWrapper flex={1}>
           <MainContainer
-            flex={2}
-            jc={"center"}
-            ai={"center"}
             style={{
               backgroundColor: "rgba(0,0,0,0.7)",
               boxShadow: "0px 5px 11px 2px rgba(0,0,0,0.7)",
@@ -407,10 +418,12 @@ function App() {
               
             )}
             </s.Container>
+            <s.Container flex={'1'} jc={"center"} ai={"center"}>
             <StyledImg
               alt={"example"}
               src={"/config/images/example.gif"}
             />
+          </s.Container>
           </MainContainer>
         </ResponsiveWrapper>
         <s.SpacerSmall />
